@@ -69,6 +69,7 @@ jason.name = "Jason"
 
 What will the value of `edgar.name` be after those three lines of code are run? What will the value of `jason.name` be? Why?
 
+>  Both will be Jason, because Class are reference type which means multiple instances point to the same object and since the jason instance was set to edgar any change to jason will change the edgar instance.
 
 ## Question 4
 
@@ -81,6 +82,7 @@ charlesFromJupiter.homePlanet = "Jupiter"
 ```
 
 What will the value of `charles.homePlanet` be after the above code run? What about the value of `charlesFromJupiter.homePlanet`? Why?
+> `charles.homePlanet` will be Pluto, whereas `charlesFromJupiter.homePlanet` will be Jupiter. This is because structs are value types meaning when assigning a copy og an instance to a new instance, the new instance only recieves a copy and any changes made to either instance do not impoact each other . 
 
 
 ## Question 5
@@ -92,17 +94,18 @@ struct BankAccount {
  var owner: String
  var balance: Double
 
- func deposit(_ amount: Double) {
+ mutating func deposit(_ amount: Double) {
  balance += amount
  }
 
- func withdraw(_ amount: Double) {
+ mutating func withdraw(_ amount: Double) {
  balance -= amount
  }
 }
 ```
 
 Does this code work? Why or why not?
+> No, becaue when a struct method changes (mutates) a struct property we must use the keyword "mutating func"
 
 Fix the `BankAccount` struct so it does work.
 
