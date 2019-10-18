@@ -11,13 +11,14 @@ Given this class that represents a giant:
 class Giant {
  var name: String = "Fred"
  var weight: Double = 340.0
- let homePlanet: String = "Earth"
+ var homePlanet: String = "Earth" 
 }
 
 let fred = Giant()
 ```
 
 Will these three lines of code run? If not, why not?
+> The last line will not compile, because homePlanet cant be reassigned because it was it was a constant.
 
 ```swift
 fred.name = "Brick"
@@ -38,10 +39,13 @@ struct Alien {
  var height: Double
  var homePlanet: String
 }
-let bilbo = Alien(name: "Bilbo", height: 1.67, homePlanet: "Venus")
+var bilbo = Alien(name: "Bilbo", height: 1.67, homePlanet: "Venus")
+
+
 ```
 
 Will these three lines of code run? If so, why not?
+> No they will not run, because bildo was declared to be a constant
 
 ```swift
 bilbo.name = "Jake"
