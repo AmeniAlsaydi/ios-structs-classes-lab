@@ -118,14 +118,42 @@ joeAccount.withdraw(50.0)
 ```
 
 What will the value of `joeAccount.balance` be after the above code runs? What about the value of `joeOtherAccount.balance`? Why?
-
+>  The value of `joeAccount.balance` will be 50 and `joeOtherAccount.balance` will remain 100. 
 
 ## Question 6
 
 a. Write a struct called `Person` that has 3 properties of type `String`: a first name, a last name and a middle name. Have the middle name be optional. Create 2 instances of a `Person`, one with a middle name and one without. Print one of their first names.
 
+```swift 
+struct Person {
+    var firstName: String
+    var lastName: String
+    var middleName: String?
+}
+
+var bob = Person(firstName: "bob", lastName: "bobby", middleName: nil)
+var rob = Person(firstName: "rob", lastName: "robby", middleName: "robster")
+print(bob.firstName)
+```
 
 b. Write a method in `Person` called `fullName` that will return a formatted string of an instance's full name. Call this method on both the instances you created in part a.
+```swift 
+struct Person {
+    var firstName: String
+    var lastName: String
+    var middleName: String?
+
+func fullName() -> String {
+  return middleName == nil ? "\(firstName) \(lastName)" : "\(firstName) \(middleName ?? "") \(lastName)"
+}
+}
+
+var bob = Person(firstName: "bob", lastName: "bobby", middleName: nil)
+var rob = Person(firstName: "rob", lastName: "robby", middleName: "robster")
+print(bob.fullName)
+print(rob.fullName)
+
+```
 
 
 ## Question 7
