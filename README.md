@@ -160,9 +160,27 @@ print(rob.fullName)
 
 a. Create a struct called `Book` that has properties `title`, `author` and `rating`, of type `String`, `String`, and `Double` respectively. Create some instances of `Book`.
 
-
 b. Add a method to `Book` called `isGood` that returns `true` if its rating is greater than or equal to 7
 
+```swift
+struct Book {
+    var title: String
+    var author: String
+    var rating: Double
+    
+    func isGood() -> Bool {
+        if rating >= 7 {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+
+let reclaim = Book(title: "Reclaim your heart", author: "Yasmin Mogahid", rating: 9)
+let early = Book(title: "In the early hours", author: "Khurran Murad", rating: 7)
+```
 
 ## Question 8
 
@@ -231,6 +249,70 @@ e. Add a type property called `count` that keeps track of how many dogs have bee
 //Ex: There have been four dogs created so far
 `Dog.count //returns 4`
 
+```swift
+class Doggy {
+
+    var name = "dog"
+    var breed = "unknown"
+    var mood = "calm"
+    var hungry = false
+    var numDogs = 0
+    
+    func playFetch() {
+        hungry = true
+        mood = "playful"
+        print("Ruff!")
+    }
+    func feed() {
+        if hungry == true {
+            hungry = false
+            print("Woof")
+        } else {
+            print("The dog doesnt look hungry")
+        }
+        
+    }
+    func toString() -> String {
+        return("""
+        Name: \(name)
+        Breed: \(breed)
+        Mood: \(mood)
+        """)
+        }
+//    func count() -> Int {
+//        not sure how to create a count method. xs
+//        return numDogs
+//
+//    }
+}
+
+var dog1 = Doggy()
+var dog2 = Doggy()
+
+dog2.name = "Rhett"
+dog2.breed = "English Setter"
+dog2.mood = "excited"
+dog2.hungry = false
+
+dog2.playFetch()
+
+var dog3 = Doggy()
+dog3.name = "Partner"
+dog3.breed = "Golden Retriever"
+dog3.mood = "thoughtful"
+dog3.hungry = true
+
+dog3.feed() //prints "Woof!"
+dog3.hungry //returns false
+
+var dog4 = Doggy()
+dog4.name = "Rascal"
+dog4.breed = "Golden Retriever"
+dog4.mood = "feeling pawesome"
+dog4.hungry = true
+
+print(dog4.toString())
+```
 
 ## Question 9
 
