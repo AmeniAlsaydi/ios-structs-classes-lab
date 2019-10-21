@@ -264,7 +264,17 @@ class Doggy {
     var breed = "unknown"
     var mood = "calm"
     var hungry = false
-    var numDogs = 0
+    static var count: Int = 0
+    
+    init(name: String, breed: String, mood: String, hungry: Bool) {
+    // NOTE: This will over ride all the default values assigned above
+      self.name = name
+      self.breed = breed
+      self.mood = mood
+      self.hungry = hungry
+      
+      Doggy.count += 1
+    }
     
     func playFetch() {
         hungry = true
@@ -287,11 +297,6 @@ class Doggy {
         Mood: \(mood)
         """)
         }
-//    func count() -> Int {
-//        not sure how to create a count method
-//        return numDogs
-//
-//    }
 }
 
 var dog1 = Doggy()
