@@ -90,6 +90,7 @@ What will the value of `charles.homePlanet` be after the above code run? What ab
 Here's a struct that represents a bank account:
 
 ```swift
+
 struct BankAccount {
  var owner: String
  var balance: Double
@@ -125,6 +126,7 @@ What will the value of `joeAccount.balance` be after the above code runs? What a
 a. Write a struct called `Person` that has 3 properties of type `String`: a first name, a last name and a middle name. Have the middle name be optional. Create 2 instances of a `Person`, one with a middle name and one without. Print one of their first names.
 
 ```swift 
+// Answer:
 struct Person {
     var firstName: String
     var lastName: String
@@ -138,6 +140,8 @@ print(bob.firstName)
 
 b. Write a method in `Person` called `fullName` that will return a formatted string of an instance's full name. Call this method on both the instances you created in part a.
 ```swift 
+// Answer:
+
 struct Person {
     var firstName: String
     var lastName: String
@@ -163,6 +167,8 @@ a. Create a struct called `Book` that has properties `title`, `author` and `rati
 b. Add a method to `Book` called `isGood` that returns `true` if its rating is greater than or equal to 7
 
 ```swift
+// Answer:
+
 struct Book {
     var title: String
     var author: String
@@ -250,6 +256,8 @@ e. Add a type property called `count` that keeps track of how many dogs have bee
 `Dog.count //returns 4`
 
 ```swift
+
+// Answer:
 class Doggy {
 
     var name = "dog"
@@ -337,13 +345,14 @@ tenDegreesCelsius.getFahrenheitTemp() //returns 50.0
 c. Give the `Celsius` struct a method called `isBelowFreezing` that returns a `Bool` (true if the temperature is below freezing).
 
 ```swift
+// Answer:
+
 struct FreezingPoint {
     var celsius = 0
     var fahrenheit = 32
     var kelvin = 273.2
     
 }
-
 
 struct Celsius {
     var celsius: Double
@@ -378,7 +387,7 @@ let colorDictArray: [[String: Double]] = [["red": 1.0, "green": 0.0, "blue": 0.0
  ["red": 0.5, "green": 0.1, "blue": 0.9],]
 ```
 ```swift 
-
+// Answer:
 var newArray = [RGBColor]()
 
 for dict in colorDictArray {
@@ -399,6 +408,8 @@ b. Create an instance method inside `Movie` called `blurb` that returns a format
 Ex: "Borat came out in 2006. It was an odd film starring Sacha Baron Cohen as a man named Borat who was visiting America from Kazakhstan."
 
 ```swift
+// Answer:
+
 struct Movie {
     var name: String
     var year: Int
@@ -457,6 +468,7 @@ if let yearAsString = dieHardDict["year"] as? String {
 }
 ```
 ```swift
+// Answer:
 func makeMovie(dict: [String: Any]) -> Movie? {
     
     let name = dict["name"] as? String ?? "no name avialable"
