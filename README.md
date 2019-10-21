@@ -389,6 +389,7 @@ for dict in colorDictArray {
 print(newArray) // despite optional binding still prints weird
 ```
 
+
 ## Question 11
 
 a. Create a struct called `Movie` that has properties for `name` (`String`), `year` (`Int`), `genre` (`String`), `cast` (`[String]`), and `description` (`String`). Create an instance of your `Movie` class
@@ -397,6 +398,24 @@ b. Create an instance method inside `Movie` called `blurb` that returns a format
 
 Ex: "Borat came out in 2006. It was an odd film starring Sacha Baron Cohen as a man named Borat who was visiting America from Kazakhstan."
 
+```swift
+struct Movie {
+    var name: String
+    var year: Int
+    var genre: String
+    var cast: [String]
+    var description: String
+    
+    func blub() -> String {
+        let note = "\(name) was released in the year of \(year). It it known as a \(genre) and stars \(cast[0]), \(cast[1]) and \(cast[2]). The movie is described as \(description)."
+        return note
+    }
+}
+
+let getOut = Movie(name: "Get Out", year: 2017, genre: "Mystery/Thriller", cast: ["a", "b", "c"], description: "Awesomeness")
+
+print(getOut.blub())
+```
 
 ## Question 12
 
@@ -436,6 +455,31 @@ if let yearAsString = dieHardDict["year"] as? String {
 } else {
  print("this didn't work")
 }
+```
+```swift
+func makeMovie(dict: [String: Any]) -> Movie? {
+    
+    let name = dict["name"] as? String ?? "no name avialable"
+    let year = dict["year"] as? Int ?? 0
+    let genre = dict["genre"] as? String ?? "no genre"
+    let cast = dict["cast"] as? [String] ?? ["a", "b", "c"]
+    let description = dict["description"] as? String ?? "xyz"
+    
+    let madeMovie = Movie(name: name, year: year, genre: genre, cast: cast, description: description)
+    
+   return madeMovie
+}
+
+
+
+let dieHardDict: [String: Any] = ["name": "Die Hard",
+ "year" : 1987,
+ "genre": "action",
+ "cast": ["Bruce Willis", "Alan Rickman"],
+ "description": "John Mclain saves the day!"]
+
+
+print(makeMovie(dict: dieHardDict) ?? "no movie") // without the default this printed in console indicating it is an optional
 ```
 
 ## Question 13
