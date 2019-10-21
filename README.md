@@ -280,7 +280,7 @@ class Doggy {
         """)
         }
 //    func count() -> Int {
-//        not sure how to create a count method. xs
+//        not sure how to create a count method
 //        return numDogs
 //
 //    }
@@ -336,7 +336,33 @@ tenDegreesCelsius.getFahrenheitTemp() //returns 50.0
 
 c. Give the `Celsius` struct a method called `isBelowFreezing` that returns a `Bool` (true if the temperature is below freezing).
 
+```swift
+struct FreezingPoint {
+    var celsius = 0
+    var fahrenheit = 32
+    var kelvin = 273.2
+    
+}
 
+
+struct Celsius {
+    var celsius: Double
+    
+    func getFahrenheitTemp() -> Double {
+        return celsius * 1.8 + 32
+    }
+    func getKelvinTemp () -> Double{
+        return celsius + 273
+    }
+    func isBelowFreezing() -> Bool {
+        if celsius < 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+```
 ## Question 10
 
 Create a struct called `RGBColor` that has 3 properties, `red`, `green`, `blue` that are all of type `Double`.
@@ -351,7 +377,17 @@ let colorDictArray: [[String: Double]] = [["red": 1.0, "green": 0.0, "blue": 0.0
  ["red": 0.2, "green": 0.2, "blue": 0.5],
  ["red": 0.5, "green": 0.1, "blue": 0.9],]
 ```
+```swift 
 
+var newArray = [RGBColor]()
+
+for dict in colorDictArray {
+    if let red = dict["red"], let green = dict["green"], let blue = dict["blue"]{
+    newArray.append(RGBColor(red: red, green: green, blue: blue))
+    }
+}
+print(newArray) // despite optional binding still prints weird
+```
 
 ## Question 11
 
